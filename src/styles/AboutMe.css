@@ -1,0 +1,37 @@
+.marginTop {
+  margin-top: 10vh;
+}
+.marginBottom {
+  margin-bottom: 10vh;
+}
+.about {
+  transition: 0.3s;
+  background-color: rgba(67, 135, 238, 0.842);
+  padding: 0 15vw;
+  border-radius: 10px;
+  box-shadow: 0 60px 40px 15px rgba(77, 77, 77, 0.575);
+}
+.about::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background-color: rgb(243, 243, 243);
+  clip-path: polygon(100% 0%, 0% 0%, 50% 30%);
+  /* transform: translateY(-5%); */
+}
+.about:hover {
+  transition: 0.3s;
+  background-color: rgb(91, 149, 236);
+}
+.aboutText {
+  color: white;
+  width: 56vw;
+  font-size: 2rem;
+}
+@media (max-width: 900px) {
+  .aboutText {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 500px) {
+}

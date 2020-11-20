@@ -1,0 +1,254 @@
+.me {
+  width: 15vw;
+  height: 15vw;
+  border: solid #fff 1.4vh;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 0 50px 5px rgba(77, 77, 77, 0.575);
+  -moz-box-shadow: 0 0 50px 5px rgba(77, 77, 77, 0.575);
+  box-shadow: 0 0 20px 5px rgb(255, 255, 255);
+}
+
+.upperHalf {
+  width: 100%;
+  text-align: left;
+  justify-content: space-around;
+  align-items: center;
+  margin: 7vh 0;
+}
+
+h1 {
+  text-shadow: 0 0 1px #000;
+  color: white;
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 4.4rem;
+  color: rgb(0, 102, 255);
+}
+h2 {
+  text-shadow: 0 0 1px #000;
+  font-size: 1.9rem;
+  color: white;
+}
+
+.slick-slide {
+  outline: none;
+  padding: 0 3vw;
+  box-sizing: border-box;
+}
+.slider {
+  margin: 23vh 0;
+  width: 82.5vw;
+}
+
+.projectImg {
+  height: 4.2vw;
+  padding: 1vw;
+}
+#fastTyping {
+  text-align: left;
+  color: white;
+  height: 4.5vw;
+  padding: 1vw;
+  font-size: 0.6rem;
+  font-weight: bolder;
+}
+
+.projectTitle {
+  text-shadow: 0 0 1px #000;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+.card {
+  transition: 0.5s;
+  margin-top: 1vw;
+  outline: none;
+  border: rgb(255, 255, 255) solid 0.33vw;
+  border-radius: 2vw;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  background-color: rgba(53, 132, 252, 0.377);
+}
+.card:hover {
+  transition: 0.4s;
+  background-color: white;
+  color: #000;
+}
+.card:hover #fastTyping {
+  color: #000;
+}
+.card:hover .projectImg {
+  transition: 0.4s;
+  filter: brightness(65%);
+}
+.card:hover .row p {
+  transition: 0.4s;
+  filter: brightness(65%);
+}
+#code {
+  margin-left: 6.5vw;
+}
+.row p {
+  font-size: 1vw;
+  color: white;
+  padding: 0.5vh 0.5vw;
+  background-color: rgb(110, 156, 226);
+  border: #fff 3px solid;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+.row p:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #fff;
+  color: #000;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .slider h2 {
+    font-size: 0.5rem;
+  }
+  .card {
+    margin-top: 1vh;
+  }
+  .row p {
+    border-radius: 5px;
+  }
+  .me {
+    display: none;
+  }
+
+  .projectTitle {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 1.5vh;
+  }
+
+  .slider {
+    width: 80vw;
+  }
+
+  .projectImg {
+    height: 8vw;
+    padding: 6vw;
+  }
+  .card {
+    margin-top: 1vw;
+    outline: none;
+    border: #fff solid 0.4vw;
+    border-radius: 5vw;
+    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+  #fastTyping {
+    color: white;
+    height: 8vw;
+    width: 80%;
+    padding: 6vw;
+    font-size: 0.4rem;
+  }
+  #code {
+    padding: 5px;
+    font-size: 0.7rem;
+    margin-left: 0;
+  }
+  #onlyCode {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+  #www {
+    padding: 5px;
+    font-size: 0.7rem;
+    margin-right: 7vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .upperHalf {
+    width: 100%;
+    text-align: justify;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .projectTitle {
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .slider {
+    width: 80vw;
+  }
+
+  .projectImg {
+    height: 16vw;
+    padding: 8vw;
+  }
+  .card {
+    margin-top: 1vw;
+    outline: none;
+    border: #888 solid 0.4vw;
+    border-radius: 5vw;
+    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+  #fastTyping {
+    color: white;
+    height: 16vw;
+    padding: 8vw;
+    font-size: 0.55rem;
+    font-weight: bolder;
+  }
+  #code {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+  #onlyCode {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+  #www {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  #fastTyping {
+    font-size: 0.17rem;
+    color: white;
+    height: 12vw;
+    padding: 10vw;
+  }
+  #code {
+    padding: 5px;
+    font-size: 0.1rem;
+  }
+  #onlyCode {
+    padding: 5px;
+    font-size: 0.4rem;
+  }
+  #www {
+    padding: 5px;
+    font-size: 0.4rem;
+  }
+  .projectImg {
+    height: 12vw;
+    padding: 10vw;
+  }
+}

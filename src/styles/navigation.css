@@ -1,37 +1,87 @@
+.center {
+  display: "flex";
+  flex-direction: row;
+  justify-content: center;
+}
 .container {
+  transition: 0.6s;
   display: flex;
   flex-direction: column;
-  background-color: #888;
-  width: 8vw;
+  background-color: rgb(37, 115, 231);
+  width: 5vw;
   height: 100vh;
   justify-content: space-between;
   align-items: center;
+  z-index: 99;
+}
+.container:hover {
+  transition: 0.6s;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(96, 153, 238);
+  width: 9vw;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
 }
 .container::before {
+  transition: 0.6s;
   position: absolute;
   content: "";
-  width: 8.1vw;
-  height: 59.3vh;
-  background-color: rgb(224, 222, 222);
-  z-index: 2;
+  width: 5vw;
+  height: 400px;
+  background-color: rgb(91, 154, 248);
+  z-index: 97;
   bottom: 0;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
 }
+.container:hover::before {
+  transition: 0.6s;
+  position: absolute;
+  content: "";
+  width: 9vw;
+  height: 530px;
+  background-color: rgb(59, 130, 236);
+  z-index: 97;
+  bottom: 0;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+.navName {
+  display: inline-block;
+  transition: 0.6s;
+  font-size: 0;
+  margin-left: 10px;
+}
+.container:hover ul li .navName {
+  transition: 0.6s;
+  font-size: 1.3rem;
+}
+.container:hover ul li .icons {
+  transition: 0.6s;
+}
+.container:hover #logo {
+  transition: 0.6s;
+  width: 5vw;
+}
 ul {
-  z-index: 3;
+  z-index: 100;
   list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
   text-align: center;
 }
 ul li {
+  align-items: center;
   border-bottom: solid white 0.2vh;
   border-radius: 1px;
   color: #fff;
-  font-size: 1.5vw;
-  padding: 3.1vh 0;
+  width: 100%;
+  padding: 30px 0;
+  z-index: 100;
 }
 ul li:hover {
   transition: 0.3s;
@@ -39,15 +89,247 @@ ul li:hover {
   cursor: pointer;
   filter: brightness(70%);
 }
+
 ul li:last-child {
   border: none;
 }
 
 .icons {
-  width: 1.8vw;
+  transition: 1;
+  width: 30px;
 }
 
 #logo {
+  transition: 1s;
   margin-top: 5vh;
-  width: 5vw;
+  width: 3vw;
+}
+.nav {
+  position: fixed;
+}
+
+.burger {
+  display: none;
+}
+
+@keyframes showNav {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 25vw;
+  }
+  50% {
+    width: 50vw;
+  }
+  75% {
+    width: 75vw;
+  }
+  100% {
+    width: 100vw;
+  }
+}
+
+@keyframes hideNav {
+  0% {
+    bottom: -20px;
+    width: 100vw;
+  }
+  25% {
+    bottom: -20px;
+    width: 75vw;
+  }
+  50% {
+    bottom: -20px;
+    width: 50vw;
+  }
+  75% {
+    bottom: -20px;
+    width: 25vw;
+  }
+  100% {
+    bottom: -20px;
+    width: 0vw;
+  }
+}
+
+@keyframes showText {
+  0% {
+    font-size: 0;
+    width: 100%;
+  }
+  85% {
+    font-size: 2.3vw;
+    width: 100%;
+  }
+  100% {
+    font-size: 2vw;
+    width: 100%;
+  }
+}
+@keyframes hideText {
+  0% {
+    font-size: 2vw;
+    width: 100%;
+  }
+  85% {
+    font-size: 2.3vw;
+    width: 100%;
+  }
+  100% {
+    font-size: 0vw;
+    width: 0%;
+  }
+}
+@keyframes showImg {
+  0% {
+    width: 0vh;
+  }
+
+  85% {
+    width: 3.3vh;
+  }
+  100% {
+    width: 3vh;
+  }
+}
+@keyframes hideImg {
+  0% {
+    width: 3vh;
+  }
+
+  85% {
+    width: 3.3vh;
+  }
+  100% {
+    width: 0vh;
+  }
+}
+
+@keyframes showBurger {
+  0% {
+    height: 0vh;
+  }
+
+  85% {
+    height: 7vh;
+  }
+  100% {
+    height: 6vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .burger {
+    display: block;
+    height: 0vh;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 101;
+    animation: showBurger 0.3s ease-in-out forwards;
+  }
+  .nav {
+    bottom: 0;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(37, 115, 231, 0.767);
+    width: 100vw;
+    height: 10vh;
+    animation-name: showNav;
+    animation-duration: 0.5s;
+  }
+
+  .container::before {
+    position: absolute;
+    content: "";
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(4, 92, 223, 0.664);
+    right: 0;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+  .containerHide {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(37, 115, 231, 0.767);
+    width: 100vw;
+    height: 10vh;
+    animation-name: hideNav;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    z-index: 100;
+  }
+  .containerHide::before {
+    position: absolute;
+    content: "";
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(4, 92, 223, 0.664);
+    right: 0;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+  .navName {
+    margin: 0;
+    color: #fff;
+    font-size: 0;
+    animation-name: showText;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  .navNameHide {
+    animation-name: hideText;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  ul {
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+  ul li {
+    margin-top: 1.5vh;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  ul li:hover {
+    transition: 0;
+    background-color: transparent;
+    cursor: pointer;
+    filter: brightness(100%);
+  }
+  .icons {
+    width: 0px;
+    animation: showImg 0.5s ease-in-out 0.5s forwards;
+  }
+  .iconsHide {
+    width: 0px;
+    animation: hideImg 0.3s ease forwards;
+  }
+
+  #logo {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  ul li {
+    margin-top: 1.1vh;
+    color: #fff;
+    font-size: 0rem;
+    padding: 0;
+  }
+
+  .icons {
+    width: 0;
+  }
+  .container {
+    height: 7vh;
+  }
+  .container::before {
+    height: 7vh;
+  }
 }
