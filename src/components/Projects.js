@@ -90,35 +90,40 @@ const Projects = () => {
           <h2>I wish to create new features.</h2>
         </div>
       </div>
-
-      <Slider {...settings} className="slider">
-        {data.map(({ name, img, urlSite, urlCode }) => {
-          return (
-            <div key={name}>
-              <p className="projectTitle">{name}</p>
-              <div className="card col">
-                {img ? (
-                  <img src={img} alt="" className="projectImg" />
-                ) : (
-                  <p id="fastTyping">
-                    <Typical loop={Infinity} steps={[lorem, 1000, "", 1000]} />
-                  </p>
-                )}
-                <div className="row">
-                  {urlSite ? (
-                    <a href={urlSite} target="blank">
-                      <p id="www">WWW</p>
+      <div>
+        <h1 className="projectsTitle">Projects</h1>
+        <Slider {...settings} className="slider">
+          {data.map(({ name, img, urlSite, urlCode }) => {
+            return (
+              <div key={name}>
+                <p className="projectTitle">{name}</p>
+                <div className="card col">
+                  {img ? (
+                    <img src={img} alt="" className="projectImg" />
+                  ) : (
+                    <p id="fastTyping">
+                      <Typical
+                        loop={Infinity}
+                        steps={[lorem, 1000, "", 1000]}
+                      />
+                    </p>
+                  )}
+                  <div className="row">
+                    {urlSite ? (
+                      <a href={urlSite} target="blank">
+                        <p id="www">WWW</p>
+                      </a>
+                    ) : null}
+                    <a href={urlCode} target="blank">
+                      <p id={urlSite ? "code" : "onlyCode"}>Code</p>
                     </a>
-                  ) : null}
-                  <a href={urlCode} target="blank">
-                    <p id={urlSite ? "code" : "onlyCode"}>Code</p>
-                  </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </Slider>
+            );
+          })}
+        </Slider>
+      </div>
     </section>
   );
 };

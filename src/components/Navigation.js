@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
+import { reducer } from "./reducer";
 import "../styles/navigation.css";
 import home from "../images/home.png";
 import about from "../images/about.png";
@@ -22,23 +23,10 @@ const defaultState = {
   active: false,
   width: 0,
 };
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "":
-      break;
 
-    default:
-      break;
-  }
-  throw new Error("no matching action type");
-};
 function Navigation() {
   const [state, dispatch] = useReducer(reducer, defaultState);
   const [count, setCount] = useState(0);
-  const [image, setImage] = useState(burger1);
-  const [display, setDisplay] = useState("");
-  const [active, setActive] = useState(false);
-  const [width, setWidth] = useState(0);
   const [listStyles, setListStyles] = useState({
     display: "flex",
     flexDirection: "row",
@@ -46,7 +34,6 @@ function Navigation() {
   });
 
   useEffect(() => {
-    console.log("useEffect");
     window.addEventListener("resize", checkWidth);
     return () => {
       console.log("cleanup");
@@ -54,45 +41,45 @@ function Navigation() {
     };
   }, []);
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width < 1025) {
-      setActive(false);
+    dispatch({ type: "changeWidth", payload: window.innerWidth });
+    if (state.width < 1025) {
+      dispatch({ type: "activeOn/Off", payload: false });
       setListStyles({});
-    } else if (width > 1025) {
-      setActive(true);
+    } else if (state.width > 1025) {
+      dispatch({ type: "activeOn/Off", payload: true });
       setListStyles({
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
       });
     }
-  }, [width]);
+  }, [state.width]);
 
   useEffect(() => {
     const sec = document.querySelector("section");
     switch (count) {
       case 1:
-        setImage(burger2);
+        dispatch({ type: "changeImg", payload: burger2 });
         sec.style.display = "block";
         break;
       case 2:
-        setImage(burger3);
+        dispatch({ type: "changeImg", payload: burger3 });
         break;
       case 3:
-        setImage(burger4);
+        dispatch({ type: "changeImg", payload: burger4 });
         break;
       case 4:
-        setDisplay("none");
-
+        dispatch({ type: "changeDisplay", payload: "none" });
+        dispatch({ type: "changeImg", payload: burger1 });
         break;
       default:
-        setImage(burger1);
+        dispatch({ type: "changeImg", payload: burger1 });
         break;
     }
-  }, [count, active]);
+  }, [count, state.active]);
 
   const startCounter = () => {
-    setActive(true);
+    dispatch({ type: "activeOn/Off", payload: true });
     const imageCounter = setInterval(() => {
       setCount((prevState) => {
         if (prevState === 4) {
@@ -106,36 +93,27 @@ function Navigation() {
   };
 
   const hide = () => {
-    if (width < 1025) {
-      setActive(false);
-      setDisplay("");
+    if (state.width < 1025) {
+      dispatch({ type: "activeOn/Off", payload: false });
+      dispatch({ type: "changeDisplay", payload: "" });
     }
   };
 
   const checkWidth = () => {
-    setWidth(window.innerWidth);
+    dispatch({ type: "changeWidth", payload: window.innerWidth });
   };
+
   return (
     <nav>
-      {!active ? (
-        <img
-          src={image}
-          alt=""
-          className="burger"
-          style={{ display }}
-          onClick={startCounter}
-        />
-      ) : null}
       <img
-        src={image}
+        src={state.image}
         alt=""
         className="burger"
-        style={{ display }}
+        style={{ display: state.display }}
         onClick={startCounter}
       />
-      {/* {active ? ( */}
       <section
-        className={active ? "nav container" : "nav containerHide"}
+        className={state.active ? "nav container" : "nav containerHide"}
         onClick={() => hide()}
       >
         <img src={logo} alt="" id="logo" />
@@ -146,19 +124,18 @@ function Navigation() {
                 <img
                   src={url}
                   alt=""
-                  className={active ? "icons" : "iconsHide"}
+                  className={state.active ? "icons" : "iconsHide"}
                 />
-                <p className={active ? "navName" : "navNameHide"}>{name}</p>
+                <p className={state.active ? "navName" : "navNameHide"}>
+                  {name}
+                </p>
               </li>
             );
           })}
         </ul>
       </section>
-      {/* ) : null} */}
     </nav>
   );
 }
 
 export default Navigation;
-
-// "nav container"
