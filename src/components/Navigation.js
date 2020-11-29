@@ -127,7 +127,7 @@ function Navigation() {
         <ul>
           {items.map(({ name, url }) => {
             return (
-              <>
+              <div key={name}>
                 <Link
                   to={name}
                   spy={true}
@@ -135,7 +135,7 @@ function Navigation() {
                   duration={500}
                   onClick={() => hide()}
                 >
-                  <li key={name} style={listStyles} className="row navItem">
+                  <li style={listStyles} className="row navItem">
                     <img
                       src={url}
                       alt=""
@@ -146,7 +146,7 @@ function Navigation() {
                     </p>
                   </li>
                 </Link>
-              </>
+              </div>
             );
           })}
         </ul>

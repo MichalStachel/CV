@@ -12,6 +12,7 @@ import "../styles/Projects.css";
 import "../styles/navigation.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const lorem =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque sed architecto minus debitis velit minima alias porro eligendi magni officia quaerat, enim necessitatibus harum explicabo cum est totam, recusandae numquam?";
@@ -85,22 +86,15 @@ const Projects = ({ flag }) => {
   return (
     <Element name="Home">
       <section className="welcomeScreen">
-        <div className="row upperHalf">
-          <img src={Me} alt="" className="me" />
-          <div className="upperHalfText">
-            <h1>Hi! My name is</h1>
-            <h3>Michael Stachel</h3>
-            <h2>I wish to create new features.</h2>
+        <ScrollAnimation animateIn="slideInLeft" animateOnce>
+          <div className="row upperHalf">
+            <img src={Me} alt="" className="me" />
+            <div className="upperHalfText">
+              <h1>Hi! My name is</h1>
+              <h3>Michael Stachel</h3>
+              <h2>I wish to create new features.</h2>
 
-            {!flag ? (
-              <button id="talkBtn" className="btnUp">
-                Let's Talk
-              </button>
-            ) : (
-              <>
-                <button id="talkBtn" className="btnUp">
-                  Let's Talk
-                </button>
+              {!flag ? (
                 <Link
                   activeClass="active"
                   to="Contact"
@@ -108,50 +102,70 @@ const Projects = ({ flag }) => {
                   smooth={true}
                   duration={500}
                 >
-                  <img
-                    src={contact}
-                    alt=""
-                    className="contactBtn"
-                    onClick={() => {
-                      console.log("gesage");
-                    }}
-                  />
+                  <button id="talkBtn" className="btnUp">
+                    Let's Talk
+                  </button>
                 </Link>
-              </>
-            )}
+              ) : (
+                <>
+                  <button id="talkBtn" className="btnUp">
+                    Let's Talk
+                  </button>
+                  <Link
+                    activeClass="active"
+                    to="Contact"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    <img
+                      src={contact}
+                      alt=""
+                      className="contactBtn"
+                      onClick={() => {
+                        console.log("gesage");
+                      }}
+                    />
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-        <div>
-          <h1 className="projectsTitle">Projects</h1>
-          <Slider {...settings} className="slider">
-            {data.map(({ name, img, urlSite, urlCode }) => {
-              return (
-                <div key={name}>
-                  <h2 className="projectTitle">{name}</h2>
-                  <div className="card col">
-                    {img ? (
-                      <img src={img} alt="" className="projectImg" />
-                    ) : (
-                      <h1 id="fastTyping">
-                        <ReactTypingEffect text={[lorem]} />
-                      </h1>
-                    )}
-                    <div className="row urlBtn">
-                      {urlSite ? (
-                        <a href={urlSite} target="blank">
-                          <p id="www">WWW</p>
+        </ScrollAnimation>
+        {/* ^UpperHalf end */}
+        <ScrollAnimation animateIn="slideInRight" animateOnce>
+          <div>
+            <h1 className="projectsTitle">Projects</h1>
+            <Slider {...settings} className="slider">
+              {data.map(({ name, img, urlSite, urlCode }) => {
+                return (
+                  <div key={name}>
+                    <h2 className="projectTitle">{name}</h2>
+                    <div className="card col">
+                      {img ? (
+                        <img src={img} alt="" className="projectImg" />
+                      ) : (
+                        <h1 id="fastTyping">
+                          <ReactTypingEffect text={[lorem]} />
+                        </h1>
+                      )}
+                      <div className="row urlBtn">
+                        {urlSite ? (
+                          <a href={urlSite} target="blank">
+                            <p id="www">WWW</p>
+                          </a>
+                        ) : null}
+                        <a href={urlCode} target="blank">
+                          <p id={urlSite ? "code" : "onlyCode"}>Code</p>
                         </a>
-                      ) : null}
-                      <a href={urlCode} target="blank">
-                        <p id={urlSite ? "code" : "onlyCode"}>Code</p>
-                      </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </Slider>
-        </div>
+                );
+              })}
+            </Slider>
+          </div>
+        </ScrollAnimation>
       </section>
     </Element>
   );

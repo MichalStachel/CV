@@ -7,7 +7,11 @@ export default function SkillsReusbleList({ arr, title }) {
       <ul className="skillsList row">
         {arr.map(({ src, text }, index) => {
           return (
-            <div className="colLeft" style={{ position: "relative" }}>
+            <div
+              className="colLeft"
+              style={{ position: "relative" }}
+              key={text}
+            >
               <div className="col skillItem">
                 <img src={src} alt="" className="skillIcons" />
                 <li className="skillsName">{text}</li>

@@ -15,6 +15,7 @@ import express from "../images/expressIcon.png";
 import TSIcon from "../images/TypeScript.png";
 import SkillSList from "./SkillsReusbleList.js";
 import { Element } from "react-scroll";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const expArr = [
   { src: ReactIcon, text: "React" },
@@ -39,21 +40,26 @@ const focus = [
 
 export default function Skills() {
   return (
-    <Element name="Skills">
-      <section className="box col">
-        <h1 className="marginTop marginBottom">Skills</h1>
-        <div className="colLeft marginBottom">
-          <SkillSList arr={expArr} title="Technologies i have experience in:" />
-          <SkillSList
-            arr={basics}
-            title="Technologies in which I know the basics:"
-          />
-          <SkillSList
-            arr={focus}
-            title="Technologies i'm focusing on right now"
-          />
-        </div>
-      </section>
-    </Element>
+    <ScrollAnimation animateIn="zoomIn" animateOnce>
+      <Element name="Skills">
+        <section className="box col">
+          <h1 className="marginTop marginBottom">Skills</h1>
+          <div className="colLeft marginBottom">
+            <SkillSList
+              arr={expArr}
+              title="Technologies i have experience in:"
+            />
+            <SkillSList
+              arr={basics}
+              title="Technologies in which I know the basics:"
+            />
+            <SkillSList
+              arr={focus}
+              title="Technologies i'm focusing on right now"
+            />
+          </div>
+        </section>
+      </Element>
+    </ScrollAnimation>
   );
 }
