@@ -1,0 +1,14 @@
+#codeImg {
+  width: 80vw;
+  height: 80vh;
+  position: fixed;
+  z-index: -101;
+  transform: translateX(43vw) translateY(-0.8vh);
+  filter: brightness(150%) blur(1.5px);
+}
+#bgImg {
+  z-index: -100;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}

@@ -1,20 +1,21 @@
 import React from "react";
+import { Element } from "react-scroll";
 import "../styles/AboutMe.css";
 
 const AboutMe = () => {
   return (
-    <section className="col about">
-      <h1>About Me</h1>
-      <p className="marginTop marginBottom aboutText">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-        assumenda expedita est placeat magnam a accusamus deserunt cumque,
-        maxime tenetur, aut dolore magni reiciendis alias earum fugit. Non,
-        dolor. Optio?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Illo consequuntur animi quae quisquam alias nam, quam velit, earum
-        ducimus laboriosam tempora at magnam molestiae minus sed quibusdam porro
-        rem voluptate.
-      </p>
-    </section>
+    <Element name="About">
+      <section className="col about">
+        <h1>About Me</h1>
+        <p className="marginTop marginBottom aboutText">
+          A year of learning programming made me able to create web applications
+          freely. I am willing to learn and open for new knowledge and
+          technology. As I am a flexible person I am looking for an internship
+          or a job as a frontend developer in full-time employment. In the
+          future my goal is to focus on mobile applications.
+        </p>
+      </section>
+    </Element>
   );
 };
 

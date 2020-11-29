@@ -15,26 +15,93 @@
   align-items: center;
   margin: 7vh 0;
 }
+.upperHalfText {
+  padding: 5% 5% 4% 5%;
+  background-color: rgba(53, 133, 252, 0.479);
+  border-radius: 2vh;
+}
 
 .projectsTitle {
   text-align: center;
-  margin: 23vh 0 2vh 0;
+  margin: 15vh 0 5vh 0;
 }
 h1 {
+  text-align: left;
   text-shadow: 0 0 1px #000;
   color: white;
   font-size: 2.2rem;
 }
 h3 {
+  text-align: left;
+  text-shadow: 0 0 1px #fff;
   font-size: 4.4rem;
   color: rgb(0, 102, 255);
 }
 h2 {
+  text-align: left;
   text-shadow: 0 0 1px #000;
   font-size: 1.9rem;
   color: white;
 }
-
+.btnUp {
+  outline: none;
+  transition: 0.3s;
+  margin-top: 0.7vh;
+  padding: 0.3vh 0.5vw;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgb(32, 185, 255);
+}
+.btnUp:hover {
+  transition: 0.3s;
+  background-color: rgb(125, 214, 255);
+}
+.contactBtn {
+  transition: 0.3s;
+  width: 10.5vw;
+  position: fixed;
+  right: 20px;
+  bottom: 10.5vh;
+  background-color: rgba(255, 255, 255, 0.39);
+  animation: showContactBtn 1s ease-in-out forwards;
+}
+@keyframes showContactBtn {
+  0% {
+    width: 0vw;
+    bottom: 110vh;
+    right: 45vw;
+    transform: rotateZ(0);
+  }
+  55% {
+    width: 3vw;
+    bottom: 8vh;
+    right: 5vw;
+    transform: rotateZ(720deg);
+  }
+  60% {
+    width: 3.2vw;
+    bottom: 8vh;
+    right: 5vw;
+    transform: rotateZ(720deg);
+  }
+  70% {
+    width: 3.5vw;
+    bottom: 8vh;
+    right: 5vw;
+    transform: rotateZ(720deg);
+  }
+  100% {
+    width: 3.2vw;
+    bottom: 8vh;
+    right: 5vw;
+    transform: rotateZ(720deg);
+  }
+}
+.contactBtn:hover {
+  transition: 0.3s;
+  background-color: rgba(12, 152, 245, 0.733);
+}
 .slick-slide {
   outline: none;
   padding: 0 3vw;
@@ -47,13 +114,13 @@ h2 {
 
 .projectImg {
   height: 4.2vw;
-  padding: 1vw;
+  padding: 1.7vw;
 }
 #fastTyping {
   text-align: left;
   color: white;
   height: 4.5vw;
-  padding: 1vw;
+  padding: 1.7vw;
   font-size: 0.6rem;
   font-weight: bolder;
 }
@@ -69,12 +136,11 @@ h2 {
   transition: 0.5s;
   margin-top: 1vw;
   outline: none;
-  border: rgb(255, 255, 255) solid 0.33vw;
   border-radius: 2vw;
   text-align: center;
   display: grid;
   place-items: center;
-  background-color: rgba(53, 132, 252, 0.377);
+  background-color: rgba(53, 133, 252, 0.479);
 }
 .card:hover {
   transition: 0.4s;
@@ -95,16 +161,15 @@ h2 {
 #code {
   margin-left: 6.5vw;
 }
-.row p {
+.urlBtn p {
   font-size: 1vw;
   color: white;
   padding: 0.5vh 0.5vw;
   background-color: rgb(110, 156, 226);
-  border: #fff 3px solid;
   border-radius: 10px;
   margin-bottom: 1vh;
 }
-.row p:hover {
+.urlBtn p:hover {
   cursor: pointer;
   transition: 0.2s;
   background-color: #fff;
@@ -112,19 +177,19 @@ h2 {
 }
 
 @media (max-width: 1024px) {
+  .contactBtn {
+    display: none;
+  }
   h1 {
-    font-size: 1.5rem;
+    font-size: 2.8rem;
   }
   h3 {
-    font-size: 2.5rem;
+    font-size: 3.7rem;
   }
   h2 {
-    font-size: 1.3rem;
+    font-size: 2.3rem;
   }
 
-  .slider h2 {
-    font-size: 0.5rem;
-  }
   .card {
     margin-top: 1vh;
   }
@@ -185,6 +250,15 @@ h2 {
 }
 
 @media (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
   .upperHalf {
     width: 100%;
     text-align: justify;
@@ -257,5 +331,11 @@ h2 {
   .projectImg {
     height: 12vw;
     padding: 10vw;
+  }
+  h3 {
+    font-size: 1.9rem;
+  }
+  h2 {
+    font-size: 1.3rem;
   }
 }

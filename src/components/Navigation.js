@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { reducer } from "./reducer";
+import { Link } from "react-scroll";
 import "../styles/navigation.css";
 import home from "../images/home.png";
 import about from "../images/about.png";
@@ -10,6 +11,7 @@ import burger1 from "../images/Burger1.png";
 import burger2 from "../images/Burger2.png";
 import burger3 from "../images/Burger3.png";
 import burger4 from "../images/Burger4.png";
+import { Element } from "react-scroll";
 const items = [
   { name: "Home", url: home },
   { name: "About", url: about },
@@ -41,11 +43,14 @@ function Navigation() {
     };
   }, []);
   useEffect(() => {
+    const sec = document.querySelector("section");
     dispatch({ type: "changeWidth", payload: window.innerWidth });
     if (state.width < 1025) {
       dispatch({ type: "activeOn/Off", payload: false });
+      dispatch({ type: "changeDisplay", payload: "" });
       setListStyles({});
     } else if (state.width > 1025) {
+      sec.style.display = "flex";
       dispatch({ type: "activeOn/Off", payload: true });
       setListStyles({
         display: "flex",
@@ -116,20 +121,32 @@ function Navigation() {
         className={state.active ? "nav container" : "nav containerHide"}
         onClick={() => hide()}
       >
-        <img src={logo} alt="" id="logo" />
+        <Element name="Home">
+          <img src={logo} alt="" id="logo" />
+        </Element>
         <ul>
           {items.map(({ name, url }) => {
             return (
-              <li key={name} style={listStyles}>
-                <img
-                  src={url}
-                  alt=""
-                  className={state.active ? "icons" : "iconsHide"}
-                />
-                <p className={state.active ? "navName" : "navNameHide"}>
-                  {name}
-                </p>
-              </li>
+              <>
+                <Link
+                  to={name}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  onClick={() => hide()}
+                >
+                  <li key={name} style={listStyles} className="row navItem">
+                    <img
+                      src={url}
+                      alt=""
+                      className={state.active ? "icons" : "iconsHide"}
+                    />
+                    <p className={state.active ? "navName" : "navNameHide"}>
+                      {name}
+                    </p>
+                  </li>
+                </Link>
+              </>
             );
           })}
         </ul>

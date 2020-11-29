@@ -1,0 +1,84 @@
+.box {
+  transition: 0.3s;
+  width: 86vw;
+  background-color: rgba(67, 135, 238, 0.842);
+  border-radius: 10px;
+  box-shadow: 0 60px 40px 15px rgba(77, 77, 77, 0.575);
+  margin: 2vh 0;
+}
+.contactForm {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin: 2vh 0 8vh 0;
+}
+
+#emailInput {
+  font-size: 1.3rem;
+  margin: 2vw 2vw 1.5vw 2vw;
+  color: rgb(96, 153, 238);
+  outline: none;
+  border: none;
+  background-color: rgb(228, 228, 228);
+  width: 20vw;
+  padding: 5px;
+  border-radius: 5px;
+}
+#emailInput::placeholder {
+  color: rgb(96, 153, 238);
+}
+#messageText {
+  font-size: 1.3rem;
+  margin: 0 1vw 1vw 1vw;
+  height: 20vh;
+  outline: none;
+  color: rgb(96, 153, 238);
+  border: none;
+  background-color: rgb(228, 228, 228);
+  padding: 5px;
+  width: 20vw;
+  border-radius: 5px;
+}
+#messageText::placeholder {
+  color: rgb(96, 153, 238);
+}
+.btnSubmit {
+  transition: 0.3s;
+  margin-bottom: 1.5vh;
+  padding: 0 5px;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgb(96, 153, 238);
+}
+.btnSubmit:hover {
+  transition: 0.3s;
+  box-shadow: 0 0px 5px 2px rgba(96, 153, 238, 0.596);
+}
+.btnSubmit:active {
+  background-color: #fff;
+  color: rgb(96, 153, 238);
+}
+
+@media (max-width: 1024px) {
+  #emailInput {
+    font-size: 0.9rem;
+  }
+  #messageText {
+    font-size: 0.8rem;
+  }
+  .btnSubmit {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  #messageText {
+    width: 60vw;
+    margin: 0 5vw 3vw 5vw;
+  }
+  #emailInput {
+    width: 60vw;
+    margin: 2vh 0 2vh 0;
+  }
+}

@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(96, 153, 238);
-  width: 9vw;
+  width: 9.05vw;
   height: 100vh;
   justify-content: space-between;
   align-items: center;
@@ -53,9 +53,19 @@
   font-size: 0;
   margin-left: 10px;
 }
+.navItem {
+  transition: 0.7s;
+  width: 5vw;
+  /* padding-right: 0.8vw; */
+  /* float: left; */
+}
+.container:hover .navItem {
+  transition: 0.7s;
+  width: 9vw;
+}
 .container:hover ul li .navName {
   transition: 0.6s;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 .container:hover ul li .icons {
   transition: 0.6s;
@@ -79,11 +89,10 @@ ul li {
   border-bottom: solid white 0.2vh;
   border-radius: 1px;
   color: #fff;
-  width: 100%;
   padding: 30px 0;
   z-index: 100;
 }
-ul li:hover {
+.nav ul li:hover {
   transition: 0.3s;
   background-color: rgba(102, 102, 102, 0.527);
   cursor: pointer;
@@ -97,6 +106,7 @@ ul li:last-child {
 .icons {
   transition: 1;
   width: 30px;
+  padding: 0 0.5vw;
 }
 
 #logo {
@@ -177,8 +187,7 @@ ul li:last-child {
     width: 100%;
   }
   100% {
-    font-size: 0vw;
-    width: 0%;
+    display: none;
   }
 }
 @keyframes showImg {
@@ -187,10 +196,10 @@ ul li:last-child {
   }
 
   85% {
-    width: 3.3vh;
+    width: 3.5vh;
   }
   100% {
-    width: 3vh;
+    width: 3.3vh;
   }
 }
 @keyframes hideImg {
@@ -237,18 +246,21 @@ ul li:last-child {
     flex-direction: row;
     background-color: rgba(37, 115, 231, 0.767);
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     animation-name: showNav;
     animation-duration: 0.5s;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .container::before {
     position: absolute;
     content: "";
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     background-color: rgba(4, 92, 223, 0.664);
     right: 0;
+    z-index: -1;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   }
   .containerHide {
@@ -256,7 +268,7 @@ ul li:last-child {
     flex-direction: row;
     background-color: rgba(37, 115, 231, 0.767);
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     animation-name: hideNav;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -265,30 +277,25 @@ ul li:last-child {
   .containerHide::before {
     position: absolute;
     content: "";
+    z-index: -1;
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     background-color: rgba(4, 92, 223, 0.664);
     right: 0;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   }
   .navName {
-    margin: 0;
-    color: #fff;
-    font-size: 0;
-    animation-name: showText;
-    animation-duration: 0.5s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
+    display: none;
   }
   .navNameHide {
-    animation-name: hideText;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
+    display: none;
   }
 
   ul {
     flex-direction: row;
-    margin-bottom: 20px;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-bottom: 20px; */
   }
   ul li {
     margin-top: 1.5vh;

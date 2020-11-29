@@ -5,7 +5,7 @@ import Home from "./screens/HomeScreen";
 function App() {
   return (
     <div className="App">
-      <Navigation className="nav" />
+      <Navigation />
       <Home />
     </div>
   );
