@@ -3,7 +3,7 @@ import Projects from "../components/Projects";
 import AboutMe from "../components/AboutMe";
 import Contact from "../components/Contact";
 import Skills from "../components/Skills";
-import code from "../images/code.jpg";
+import code from "../images/code.png";
 import bg from "../images/backgroundPhoto.png";
 import "../styles/home.css";
 
@@ -15,7 +15,7 @@ export default function HomeScreen() {
     const changeScrollPosition = () => {
       const cd = document.getElementById("codeImg");
       setScrollPosition(~~window.scrollY);
-      cd.style.top = scrollPosition * -0.05 + "px";
+      cd.style.top = scrollPosition * -0.1 + "px";
     };
     window.addEventListener("scroll", changeScrollPosition);
     if (scrollPosition < 350) {

@@ -1,14 +1,27 @@
 #codeImg {
-  width: 80vw;
-  height: 80vh;
+  width: 60vw;
   position: fixed;
   z-index: -101;
-  transform: translateX(43vw) translateY(-0.8vh);
-  filter: brightness(150%) blur(1.5px);
+  transform: translateX(32.5vw) translateY(-20vh) rotateZ(2deg);
+  filter: brightness(160%) blur(2.5px);
 }
 #bgImg {
   z-index: -100;
   position: fixed;
   width: 100vw;
   height: 100vh;
+}
+@media (max-width: 1020px) {
+  #codeImg {
+    height: 300%;
+
+    transform: translateX(33vw) translateY(-20vh) rotateZ(1.3deg);
+  }
+}
+
+@media (max-width: 750px) {
+  #codeImg {
+    height: 250%;
+    transform: translateX(32.5vw) translateY(-20vh) rotateZ(1deg);
+  }
 }

@@ -29,7 +29,7 @@ const expArr = [
 const basics = [
   { src: NodeIcon, text: "Node" },
   { src: brainJS, text: "BrainJS" },
-  { src: phyton, text: "Phyton" },
+  { src: phyton, text: "Python" },
   { src: express, text: "Express" },
 ];
 const focus = [

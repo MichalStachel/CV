@@ -45,7 +45,7 @@ const data = [
   {
     name: "CV",
     img: cv,
-    urlCode: "codeurl",
+    urlCode: "https://github.com/MichalStachel/CV",
     urlSite: "",
   },
 ];
